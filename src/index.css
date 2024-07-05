@@ -7,8 +7,33 @@ body {
     -moz-osx-font-smoothing: grayscale;
   }
   
-  code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-      monospace;
-  }
-  
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+ 
+.landscape {
+  margin: 20px 40px;
+}
+
+.gap {
+  margin: 40px 30px;
+}
+
+.light {
+  border: 1px solid #d9e0e8 !important;
+  border-right: 10px solid rgb(14, 146, 179) !important;
+  background-color: antiquewhite;
+  width: 100%;
+}
+
+.dark {
+  border: 1px solid #d9e0e8 !important;
+  border-right: 10px solid rgb(14, 146, 179) !important;
+  width: 100%;
+}
+
+.textarea {
+  width: 100%;
+  border-radius: 5px;
+}
