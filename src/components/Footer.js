@@ -17,13 +17,22 @@ import { TextField } from "@mui/material";
 import Button from "@mui/material/Button";
 import SearchIcon from "@mui/icons-material/Search";
 import { InputBase, IconButton } from "@mui/material";
+import Divider from "@mui/material/Divider";
+import { FormControl, Select, MenuItem, FormGroup } from "@mui/material";
+
 const Footer = () => {
   const [value, setValue] = React.useState("1");
+  const [isterm, setIsterm] = React.useState(false);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
+  const addTerm = () => {
+    setIsterm(true);
+  };
+  const cancelTerm = () => {
+    setIsterm(false);
+  };
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
     ...theme.typography.body2,
@@ -185,9 +194,14 @@ const Footer = () => {
           </Grid>
         </TabPanel>
         <TabPanel value="3">
-          <Grid container xs={12} spacing={2}>
+          <Grid
+            container
+            xs={12}
+            spacing={2}
+            sx={{ padding: "4px ", marginBottom: "10px" }}
+          >
             <Grid item xs={6}>
-              <div>
+              <Box sx={{ border: "1px solid #bdbdbd" }}>
                 <IconButton type="submit" sx={{ p: "10px" }}>
                   <SearchIcon />
                 </IconButton>
@@ -196,12 +210,132 @@ const Footer = () => {
                   placeholder="Search"
                   inputProps={{ "aria-label": "search input" }}
                 />
-              </div>
+              </Box>
             </Grid>
             <Grid item xs={4}></Grid>
             <Grid item xs={2}>
-              <Button variant="contained">Add Term</Button>
+              <Button variant="contained" onClick={addTerm}>
+                + Add Term
+              </Button>
             </Grid>
+          </Grid>
+          <Divider />
+          {isterm && (
+            <Box>
+              <Grid container sx={{ margin: "10px" }} spacing={2}>
+                <Grid xs={6}>
+                  <FormGroup className="form_group">
+                    <Typography variant="body1" gutterBottom>
+                      Definition
+                    </Typography>
+                    <TextField
+                      id="project-name"
+                      variant="outlined"
+                      fullWidth
+                      required
+                      placeholder="Enter project name"
+                    />
+                  </FormGroup>
+                </Grid>
+                <Grid xs={2}>
+                  <FormGroup className="form_group">
+                    <Typography variant="body1" gutterBottom>
+                      Glossary*
+                    </Typography>
+                    <FormControl fullWidth variant="outlined">
+                      <Select id="tm-glossary" value="" required>
+                        <MenuItem value="">Select TM & Glossary</MenuItem>
+                        <MenuItem value="tm1">TM 1</MenuItem>
+                        <MenuItem value="tm2">TM 2</MenuItem>
+                        {/* Add more MenuItem components as needed */}
+                      </Select>
+                    </FormControl>
+                  </FormGroup>
+                </Grid>
+                <Grid xs={2}>
+                  <FormGroup className="form_group">
+                    <Typography variant="body1" gutterBottom>
+                      Domain*
+                    </Typography>
+                    <FormControl fullWidth variant="outlined">
+                      <Select id="tm-glossary" value="" required>
+                        <MenuItem value="">Select TM & Glossary</MenuItem>
+                        <MenuItem value="tm1">TM 1</MenuItem>
+                        <MenuItem value="tm2">TM 2</MenuItem>
+                        {/* Add more MenuItem components as needed */}
+                      </Select>
+                    </FormControl>
+                  </FormGroup>
+                </Grid>
+                <Grid xs={2}>
+                  <FormGroup className="form_group">
+                    <Typography variant="body1" gutterBottom>
+                      Subdomain*
+                    </Typography>
+                    <FormControl fullWidth variant="outlined">
+                      <Select id="tm-glossary" value="" required>
+                        <MenuItem value="">Select TM & Glossary</MenuItem>
+                        <MenuItem value="tm1">TM 1</MenuItem>
+                        <MenuItem value="tm2">TM 2</MenuItem>
+                        {/* Add more MenuItem components as needed */}
+                      </Select>
+                    </FormControl>
+                  </FormGroup>
+                </Grid>
+              </Grid>
+              <Grid container sx={{ margin: "10px" }} spacing={2}>
+                <Grid xs={6}>
+                  <FormGroup className="form_group">
+                    <Typography variant="body1" gutterBottom>
+                      Original term*
+                    </Typography>
+                    <TextField
+                      id="project-name"
+                      variant="outlined"
+                      fullWidth
+                      required
+                      placeholder="Enter project name"
+                    />
+                  </FormGroup>
+                </Grid>
+                <Grid xs={6}>
+                  <FormGroup className="form_group">
+                    <Typography variant="body1" gutterBottom>
+                      Translated term*
+                    </Typography>
+                    <TextField
+                      id="project-name"
+                      variant="outlined"
+                      fullWidth
+                      required
+                      placeholder="Enter project name"
+                    />
+                  </FormGroup>
+                </Grid>
+              </Grid>
+              <Grid container sx={{ margin: "10px" }} spacing={2}>
+                <Grid xs={6}>
+                  <div sx={{ flexFlow: "flex", justifyContent: "center" }}>
+                    <Typography>more options</Typography>
+                  </div>
+                </Grid>
+                <Grid xs={4}></Grid>
+                <Grid xs={1}>
+                  <Button variant="text" onClick={cancelTerm}>
+                    Cancel
+                  </Button>
+                </Grid>
+                <Grid xs={1}>
+                  <Button variant="contained">+ Add Term</Button>
+                </Grid>
+              </Grid>
+            </Box>
+          )}
+
+          <Grid container xs={12} sx={{ margin: "10px" }}>
+            <Grid xs={6}> </Grid>
+            <Grid xs={1}>No results</Grid>
+            <Grid xs={5}> </Grid>
           </Grid>
         </TabPanel>
       </TabContext>
