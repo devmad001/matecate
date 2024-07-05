@@ -16,24 +16,28 @@ code {
   margin: 20px 40px;
 }
 
-.gap {
-  margin: 40px 30px;
-}
-
 .light {
-  border: 1px solid #d9e0e8 !important;
+  border: 1px solid rgb(174,189,205) !important;
   border-right: 10px solid rgb(14, 146, 179) !important;
-  background-color: antiquewhite;
+  background-color: rgb(237, 244, 253);
   width: 100%;
 }
 
 .dark {
-  border: 1px solid #d9e0e8 !important;
+  border: 1px solid rgb(174,189,205) !important;
   border-right: 10px solid rgb(14, 146, 179) !important;
+  background-color: rgb(217, 224, 232);
   width: 100%;
 }
 
 .textarea {
   width: 100%;
   border-radius: 5px;
+}
+
+.light:hover, .dark:hover {
+  cursor: pointer;
+  background-color: rgb(234,235,238);
+  border: 1px solid rgb(174,189,205) !important;
+  border-right: 10px solid rgb(14, 146, 179) !important;
 }
